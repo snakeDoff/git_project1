@@ -1,1 +1,15 @@
+import sys
+a = list(map(str.strip, sys.stdin))
+tbd = []
+for i in a:
+    temp = list(map(int, i.split(', ')))
+    c = 0
+    for _ in temp:
+        if _ % 2 == 0:
+            c += 1
+    tbd.append([temp, len(temp) - c])
 
+tbd.sort(key=lambda x: x[1])
+
+for i in tbd[0][0]:
+    print(i, end=' ')
